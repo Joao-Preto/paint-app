@@ -8,7 +8,9 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
-import android.view.View
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Toast
 import android.widget.Toast.makeText
 import androidx.appcompat.app.AppCompatActivity
@@ -68,6 +70,26 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.settings_item -> {
+                settings()
+                return true
+            }
+            R.id.about_item -> {
+                about()
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL)
@@ -78,25 +100,16 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         sensorManager.unregisterListener(this)
     }
 
-    fun settings(view: View) {
+    fun settings() {
         val settingsFragment = supportFragmentManager.findFragmentById(R.id.settingsContainer)
         if (settingsFragment != null) {
             supportFragmentManager.beginTransaction().attach(settingsFragment).addToBackStack(null).commit()
         }
     }
 
-    fun about (view: View) {
+    fun about () {
         val intent = Intent(this, AboutActivity::class.java)
         startActivity(intent)
-    }
-
-    fun hidePalette(view: View) {
-        val frag = supportFragmentManager.findFragmentById(R.id.paletteContainer)
-        if (frag != null) {
-            supportFragmentManager.beginTransaction().remove(frag).commit()
-        } else {
-            supportFragmentManager.beginTransaction().add(R.id.paletteContainer, PaletteFragment()).commit()
-        }
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
