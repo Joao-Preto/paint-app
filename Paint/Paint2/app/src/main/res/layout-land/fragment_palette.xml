@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAD67C"
+    tools:context=".PaletteFragment">
+
+
+    <ImageButton
+        android:id="@+id/aquaPaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00832323"
+        android:src="@drawable/color_button"
+        app:layout_constraintBottom_toTopOf="@+id/magentaPaintButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/darkGreenPaintButton"
+        app:layout_constraintTop_toBottomOf="@+id/orangePaintButton"
+        app:tint="#00FFC8" />
+
+    <ImageButton
+        android:id="@+id/bluePaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00832323"
+        android:src="@drawable/color_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/darkPurplePaintButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yellowPaintButton"
+        app:tint="#0000FF" />
+
+    <ImageButton
+        android:id="@+id/magentaPaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00832323"
+        android:src="@drawable/color_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/purplePaintButton"
+        app:layout_constraintTop_toBottomOf="@+id/aquaPaintButton"
+        app:tint="#FF00FF" />
+
+    <ImageButton
+        android:id="@+id/lightGreenPaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00832323"
+        android:src="@drawable/color_button"
+        app:layout_constraintBottom_toTopOf="@+id/darkPurplePaintButton"
+        app:layout_constraintEnd_toStartOf="@+id/darkGreenPaintButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/yellowPaintButton"
+        app:layout_constraintTop_toBottomOf="@+id/whitePaintButton"
+        app:tint="#A0FF00" />
+
+    <ImageButton
+        android:id="@+id/pasteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/content_paste"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/copyButton"
+        app:layout_constraintTop_toBottomOf="@+id/bucketButton" />
+
+    <ImageButton
+        android:id="@+id/darkPurplePaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00832323"
+        android:src="@drawable/color_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/purplePaintButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bluePaintButton"
+        app:layout_constraintTop_toBottomOf="@+id/lightGreenPaintButton"
+        app:tint="#3700FF" />
+
+    <ImageButton
+        android:id="@+id/darkGreenPaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00832323"
+        android:src="@drawable/color_button"
+        app:layout_constraintBottom_toTopOf="@+id/purplePaintButton"
+        app:layout_constraintEnd_toStartOf="@+id/aquaPaintButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/lightGreenPaintButton"
+        app:layout_constraintTop_toBottomOf="@+id/redPaintButton"
+        app:tint="#00FF00" />
+
+    <ImageButton
+        android:id="@+id/purplePaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00832323"
+        android:src="@drawable/color_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/magentaPaintButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/darkPurplePaintButton"
+        app:layout_constraintTop_toBottomOf="@+id/darkGreenPaintButton"
+        app:tint="#9B00FF" />
+
+    <ImageButton
+        android:id="@+id/orangePaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00832323"
+        android:src="@drawable/color_button"
+        app:layout_constraintBottom_toTopOf="@+id/aquaPaintButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/redPaintButton"
+        app:layout_constraintTop_toBottomOf="@+id/copyButton"
+        app:tint="#FF9000" />
+
+    <ImageButton
+        android:id="@+id/yellowPaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00832323"
+        android:src="@drawable/color_button"
+        app:layout_constraintBottom_toTopOf="@+id/bluePaintButton"
+        app:layout_constraintEnd_toStartOf="@+id/lightGreenPaintButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blackPaintButton"
+        app:tint="#FFE600" />
+
+    <ImageButton
+        android:id="@+id/redPaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00832323"
+        android:src="@drawable/color_button"
+        app:layout_constraintBottom_toTopOf="@+id/darkGreenPaintButton"
+        app:layout_constraintEnd_toStartOf="@+id/orangePaintButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/whitePaintButton"
+        app:layout_constraintTop_toBottomOf="@+id/copyButton"
+        app:tint="#FF0000" />
+
+    <ImageButton
+        android:id="@+id/pencilButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/pencil"
+        app:layout_constraintBottom_toTopOf="@+id/eraseButton"
+        app:layout_constraintEnd_toStartOf="@+id/brushButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/brushButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/brush"
+        app:layout_constraintBottom_toTopOf="@+id/copyButton"
+        app:layout_constraintEnd_toStartOf="@+id/bucketButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/pencilButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/bucketButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/format_color_fill"
+        app:layout_constraintBottom_toTopOf="@+id/pasteButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/brushButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/eraseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/eraser_variant"
+        app:layout_constraintEnd_toStartOf="@+id/copyButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pencilButton" />
+
+    <ImageButton
+        android:id="@+id/copyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/content_copy"
+        app:layout_constraintEnd_toStartOf="@+id/pasteButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/eraseButton"
+        app:layout_constraintTop_toBottomOf="@+id/brushButton" />
+
+    <ImageButton
+        android:id="@+id/blackPaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00832323"
+        android:src="@drawable/color_button"
+        app:layout_constraintBottom_toTopOf="@+id/yellowPaintButton"
+        app:layout_constraintEnd_toStartOf="@+id/whitePaintButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eraseButton" />
+
+    <ImageButton
+        android:id="@+id/whitePaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00832323"
+        android:src="@drawable/color_button"
+        app:layout_constraintBottom_toTopOf="@+id/lightGreenPaintButton"
+        app:layout_constraintEnd_toStartOf="@+id/redPaintButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/blackPaintButton"
+        app:layout_constraintTop_toBottomOf="@+id/copyButton"
+        app:tint="#FFFFFF" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
