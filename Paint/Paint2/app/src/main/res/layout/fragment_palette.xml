@@ -67,7 +67,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:src="@drawable/content_paste"
+        android:src="@drawable/ic_baseline_save_alt_24"
+        android:tint="#000000"
         app:layout_constraintBottom_toTopOf="@+id/lightGreenPaintButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -123,7 +124,7 @@
         app:layout_constraintEnd_toStartOf="@+id/yellowPaintButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/redPaintButton"
-        app:layout_constraintTop_toBottomOf="@+id/eraseButton"
+        app:layout_constraintTop_toBottomOf="@+id/undoButton"
         app:tint="#FF9000" />
 
     <ImageButton
@@ -149,7 +150,7 @@
         app:layout_constraintEnd_toStartOf="@+id/orangePaintButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/whitePaintButton"
-        app:layout_constraintTop_toBottomOf="@+id/bucketButton"
+        app:layout_constraintTop_toBottomOf="@+id/eraseButton"
         app:tint="#FF0000" />
 
     <ImageButton
@@ -172,21 +173,9 @@
         android:layout_marginTop="16dp"
         android:src="@drawable/brush"
         app:layout_constraintBottom_toTopOf="@+id/whitePaintButton"
-        app:layout_constraintEnd_toStartOf="@+id/bucketButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/pencilButton"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/bucketButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/format_color_fill"
-        app:layout_constraintBottom_toTopOf="@+id/redPaintButton"
         app:layout_constraintEnd_toStartOf="@+id/eraseButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/brushButton"
+        app:layout_constraintStart_toEndOf="@+id/pencilButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -195,10 +184,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:src="@drawable/eraser_variant"
+        app:layout_constraintBottom_toTopOf="@+id/redPaintButton"
+        app:layout_constraintEnd_toStartOf="@+id/undoButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/brushButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/undoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/arrow_u_left_top"
         app:layout_constraintBottom_toTopOf="@+id/orangePaintButton"
         app:layout_constraintEnd_toStartOf="@+id/copyButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bucketButton"
+        app:layout_constraintStart_toEndOf="@+id/eraseButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -206,12 +207,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:src="@drawable/content_copy"
+        android:src="@drawable/ic_outline_save_24"
         app:layout_constraintBottom_toTopOf="@+id/yellowPaintButton"
         app:layout_constraintEnd_toStartOf="@+id/pasteButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/eraseButton"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/undoButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#000000" />
 
     <ImageButton
         android:id="@+id/blackPaintButton"

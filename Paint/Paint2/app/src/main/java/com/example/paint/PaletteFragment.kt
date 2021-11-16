@@ -6,9 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.core.os.bundleOf
 
 // TODO: Rename parameter arguments, choose names that match
@@ -45,8 +43,8 @@ class PaletteFragment : Fragment(), View.OnClickListener {
         if (view != null) {
             view.findViewById<ImageButton>(R.id.copyButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.brushButton).setOnClickListener(this)
-            view.findViewById<ImageButton>(R.id.bucketButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.eraseButton).setOnClickListener(this)
+            view.findViewById<ImageButton>(R.id.undoButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.copyButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.pasteButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.blackPaintButton).setOnClickListener(this)
@@ -61,6 +59,8 @@ class PaletteFragment : Fragment(), View.OnClickListener {
             view.findViewById<ImageButton>(R.id.darkPurplePaintButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.purplePaintButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.magentaPaintButton).setOnClickListener(this)
+            view.findViewById<ImageButton>(R.id.eraseButton).setOnClickListener(this)
+            view.findViewById<ImageButton>(R.id.undoButton).setOnClickListener(this)
         }
         return root
     }
@@ -93,21 +93,35 @@ class PaletteFragment : Fragment(), View.OnClickListener {
         var result = Color.BLACK
         if (view != null) {
             when (view.id) {
-                R.id.blackPaintButton      -> result = Color.BLACK
-                R.id.whitePaintButton      -> result = Color.WHITE
-                R.id.redPaintButton        -> result = Color.RED
-                R.id.orangePaintButton     -> result = Color.rgb(255,144,0)
-                R.id.yellowPaintButton     -> result = Color.YELLOW
-                R.id.lightGreenPaintButton -> result = Color.rgb(160,255,0)
-                R.id.darkGreenPaintButton  -> result = Color.GREEN
-                R.id.aquaPaintButton       -> result = Color.rgb(0,255,200)
-                R.id.bluePaintButton       -> result = Color.BLUE
-                R.id.darkPurplePaintButton -> result = Color.rgb(55,0,255)
-                R.id.purplePaintButton     -> result = Color.rgb(155,0,255)
-                R.id.magentaPaintButton    -> result = Color.rgb(255,0,255)
+                R.id.blackPaintButton      -> parentFragmentManager.setFragmentResult(Extra_PAINT,
+                    bundleOf(Extra_PAINT to Color.BLACK))
+                R.id.whitePaintButton      -> parentFragmentManager.setFragmentResult(Extra_PAINT,
+                    bundleOf(Extra_PAINT to Color.WHITE ))
+                R.id.redPaintButton        -> parentFragmentManager.setFragmentResult(Extra_PAINT,
+                    bundleOf(Extra_PAINT to Color.RED))
+                R.id.orangePaintButton     -> parentFragmentManager.setFragmentResult(Extra_PAINT,
+                    bundleOf(Extra_PAINT to Color.rgb(255,144,0)))
+                R.id.yellowPaintButton     -> parentFragmentManager.setFragmentResult(Extra_PAINT,
+                    bundleOf(Extra_PAINT to Color.YELLOW))
+                R.id.darkGreenPaintButton  -> parentFragmentManager.setFragmentResult(Extra_PAINT,
+                    bundleOf(Extra_PAINT to Color.GREEN))
+                R.id.aquaPaintButton       -> parentFragmentManager.setFragmentResult(Extra_PAINT,
+                    bundleOf(Extra_PAINT to Color.rgb(0,255,200)))
+                R.id.lightGreenPaintButton -> parentFragmentManager.setFragmentResult(Extra_PAINT,
+                    bundleOf(Extra_PAINT to Color.rgb(160,255,0)))
+                R.id.bluePaintButton       -> parentFragmentManager.setFragmentResult(Extra_PAINT,
+                    bundleOf(Extra_PAINT to Color.BLUE))
+                R.id.darkPurplePaintButton -> parentFragmentManager.setFragmentResult(Extra_PAINT,
+                    bundleOf(Extra_PAINT to Color.rgb(55,0,255)))
+                R.id.purplePaintButton     -> parentFragmentManager.setFragmentResult(Extra_PAINT,
+                    bundleOf(Extra_PAINT to Color.rgb(155,0,255)))
+                R.id.magentaPaintButton    -> parentFragmentManager.setFragmentResult(Extra_PAINT,
+                    bundleOf(Extra_PAINT to Color.rgb(255,0,255)))
+                R.id.eraseButton           -> parentFragmentManager.setFragmentResult(EXTRA_ERASE,
+                    bundleOf())
+                R.id.undoButton            -> parentFragmentManager.setFragmentResult(EXTRA_UNDO,
+                    bundleOf())
             }
         }
-        parentFragmentManager.setFragmentResult(Extra_PAINT, bundleOf(Extra_PAINT to result))
-
     }
 }

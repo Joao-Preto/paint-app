@@ -70,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/copyButton"
-        app:layout_constraintTop_toBottomOf="@+id/bucketButton" />
+        app:layout_constraintTop_toBottomOf="@+id/eraseButton" />
 
     <ImageButton
         android:id="@+id/darkPurplePaintButton"
@@ -156,7 +156,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:src="@drawable/pencil"
-        app:layout_constraintBottom_toTopOf="@+id/eraseButton"
+        app:layout_constraintBottom_toTopOf="@+id/undoButton"
         app:layout_constraintEnd_toStartOf="@+id/brushButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -169,13 +169,13 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/brush"
         app:layout_constraintBottom_toTopOf="@+id/copyButton"
-        app:layout_constraintEnd_toStartOf="@+id/bucketButton"
+        app:layout_constraintEnd_toStartOf="@+id/eraseButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/pencilButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/bucketButton"
+        android:id="@+id/eraseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -187,7 +187,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/eraseButton"
+        android:id="@+id/undoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -205,7 +205,7 @@
         android:src="@drawable/content_copy"
         app:layout_constraintEnd_toStartOf="@+id/pasteButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/eraseButton"
+        app:layout_constraintStart_toEndOf="@+id/undoButton"
         app:layout_constraintTop_toBottomOf="@+id/brushButton" />
 
     <ImageButton
@@ -218,7 +218,7 @@
         app:layout_constraintEnd_toStartOf="@+id/whitePaintButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eraseButton" />
+        app:layout_constraintTop_toBottomOf="@+id/undoButton" />
 
     <ImageButton
         android:id="@+id/whitePaintButton"

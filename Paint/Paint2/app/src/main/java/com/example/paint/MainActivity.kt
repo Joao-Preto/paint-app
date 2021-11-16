@@ -20,6 +20,8 @@ import kotlin.math.sqrt
 const val EXTRA_COLOR = "com.example.paint.color"
 const val Extra_PAINT = "com.example.paint.paint.color"
 const val Extra_SHAKE = "com.example.paint.shake"
+const val EXTRA_ERASE = "com.example.paint.erase"
+const val EXTRA_UNDO = "com.example.paint.undo"
 class MainActivity : AppCompatActivity(), SensorEventListener {
 
     private lateinit var sensorManager: SensorManager
@@ -27,12 +29,12 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     private var currAcc: Float = SensorManager.GRAVITY_EARTH
     private var oldAcc: Float = SensorManager.GRAVITY_EARTH
     private var acceleration: Float = 0.0f
+    private var backgroundColor = Color.WHITE
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var backgroundColor = intent.getIntExtra(EXTRA_COLOR, Color.WHITE)
         val view = this.window.decorView
         //val paintZoneFrag = supportFragmentManager.findFragmentById(R.id.canvasContainer)
         val paletteFrag   = supportFragmentManager.findFragmentById(R.id.paletteContainer)
@@ -123,7 +125,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
                 val delta = currAcc - oldAcc
                 acceleration = acceleration*0.9f + delta
                 if (acceleration > 12) {
-                    makeText(applicationContext, "shake", Toast.LENGTH_SHORT).show()
                     supportFragmentManager.setFragmentResult(
                         Extra_SHAKE,
                         bundleOf()

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAD67C"
+    tools:context=".SettingsFragment">
+
+    <ImageButton
+        android:id="@+id/aquaColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/color_button"
+        app:layout_constraintEnd_toStartOf="@+id/blueColorButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/greenColorButton"
+        app:layout_constraintTop_toBottomOf="@+id/whiteColorButton"
+        app:tint="#00FFC8" />
+
+    <ImageButton
+        android:id="@+id/greenColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/color_button"
+        app:layout_constraintEnd_toStartOf="@+id/aquaColorButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blackColorButton"
+        app:tint="#00FF00" />
+
+    <ImageButton
+        android:id="@+id/lightGreenColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/color_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/yellowColorButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:tint="#A0FF00" />
+
+    <ImageButton
+        android:id="@+id/yellowColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/color_button"
+        app:layout_constraintEnd_toStartOf="@+id/lightGreenColorButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/orangeColorButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:tint="#FFE600" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/setting_title_text"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/color_picker_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <ImageButton
+        android:id="@+id/blackColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/color_button"
+        app:layout_constraintEnd_toStartOf="@+id/whiteColorButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <ImageButton
+        android:id="@+id/orangeColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/color_button"
+        app:layout_constraintEnd_toStartOf="@+id/yellowColorButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/redColorButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:tint="#FF9000" />
+
+    <ImageButton
+        android:id="@+id/whiteColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/color_button"
+        app:layout_constraintEnd_toStartOf="@+id/redColorButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/blackColorButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:tint="#FFFFFF" />
+
+    <ImageButton
+        android:id="@+id/redColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:foregroundGravity="center"
+        android:foregroundTintMode="multiply"
+        android:src="@drawable/color_button"
+        app:layout_constraintEnd_toStartOf="@+id/orangeColorButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/whiteColorButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:tint="#FF0000" />
+
+    <ImageButton
+        android:id="@+id/purpleColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/color_button"
+        app:layout_constraintEnd_toStartOf="@+id/magentaColorButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/darkPurpleColorButton"
+        app:layout_constraintTop_toBottomOf="@+id/yellowColorButton"
+        app:tint="#9B00FF" />
+
+    <ImageButton
+        android:id="@+id/darkPurpleColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/color_button"
+        app:layout_constraintEnd_toStartOf="@+id/purpleColorButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/blueColorButton"
+        app:layout_constraintTop_toBottomOf="@+id/orangeColorButton"
+        app:tint="#3700FF" />
+
+    <ImageButton
+        android:id="@+id/magentaColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/color_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/purpleColorButton"
+        app:layout_constraintTop_toBottomOf="@+id/lightGreenColorButton"
+        app:tint="#FF00FF" />
+
+    <ImageButton
+        android:id="@+id/blueColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/color_button"
+        app:layout_constraintEnd_toStartOf="@+id/darkPurpleColorButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/aquaColorButton"
+        app:layout_constraintTop_toBottomOf="@+id/redColorButton"
+        app:tint="#0000FF" />
+
+    <Button
+        android:id="@+id/pickColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/color_pick_done_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greenColorButton" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Ok"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,10 +7,11 @@ import android.os.CountDownTimer
 import android.view.View
 
 class SplashPageActivity : AppCompatActivity() {
+    private lateinit var timer: CountDownTimer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_page)
-        object: CountDownTimer(30000, 1000) {
+        timer = object: CountDownTimer(30000, 1000) {
             override fun onTick(p0: Long) {
                 // not doing anything
             }
@@ -28,6 +29,7 @@ class SplashPageActivity : AppCompatActivity() {
     }
 
     fun start_interaction(view: View) {
+        timer.cancel()
         start_interaction()
     }
 }

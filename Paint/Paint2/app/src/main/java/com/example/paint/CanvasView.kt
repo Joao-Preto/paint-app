@@ -13,8 +13,10 @@ import android.view.View
 class CanvasView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr), View.OnTouchListener {
-    private val paint = Paint()
-    private val path = Path()
+    private var paint = Paint()
+    private var path = Path()
+    private val strokes: MutableList<Path> = mutableListOf()
+    private val colors: MutableMap<Path, Paint> = hashMapOf()
     private var defaultBackgroundColor = Color.TRANSPARENT
     private lateinit var gestureDetector: GestureDetector
 
@@ -25,7 +27,10 @@ class CanvasView @JvmOverloads constructor(
     }
 
     override fun onDraw(canvas: Canvas?) {
-        canvas?.drawPath(path, paint)
+        strokes.forEach { stroke ->
+            colors.get(stroke)?.let { canvas?.drawPath(stroke, it) }
+        }
+
     }
 
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
@@ -34,15 +39,25 @@ class CanvasView @JvmOverloads constructor(
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-        val x = event!!.x
-        val y = event.y
+        var x = event!!.x
+        var y = event.y
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {                 // updates the path initial point
                 path.moveTo(x, y)
                 return true
             }
-            MotionEvent.ACTION_MOVE -> path.lineTo(x, y) // makes a line to the point each time this event is fired
-            MotionEvent.ACTION_UP   -> performClick()    // when you lift your finger
+            MotionEvent.ACTION_MOVE -> {
+                path.lineTo(x, y) // makes a line to the point each time this event is fired
+
+
+            }
+            MotionEvent.ACTION_UP   -> {
+                strokes.add(path)
+                colors[path] = paint
+                path = Path()
+                path.moveTo(x, y)
+                performClick()
+            }    // when you lift your finger
             else -> return false
         }
         invalidate()
@@ -56,7 +71,15 @@ class CanvasView @JvmOverloads constructor(
     }
 
     fun erase() {
-        path.reset()
+        strokes.forEach { stroke ->
+            stroke.reset()
+        }
+        invalidate()
+    }
+
+    fun undo () {
+        strokes.last().reset()
+        invalidate()
     }
 
     private fun initPaint() {
@@ -72,6 +95,8 @@ class CanvasView @JvmOverloads constructor(
     }
 
     fun changePaintColor(newColor: Int) {
+        paint = Paint()
+        initPaint()
         paint.color = newColor
     }
 
