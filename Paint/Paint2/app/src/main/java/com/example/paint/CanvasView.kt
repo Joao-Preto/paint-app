@@ -21,7 +21,7 @@ class CanvasView @JvmOverloads constructor(
     private var paint = Paint()
     private var path = Path()
     private val strokes: MutableList<Path> = mutableListOf()
-    private val colors: MutableMap<String, Color> = hashMapOf()
+    private val colors: MutableMap<Path, Paint> = hashMapOf()
     private var defaultBackgroundColor = Color.TRANSPARENT
     private lateinit var gestureDetector: GestureDetector
 
@@ -33,14 +33,16 @@ class CanvasView @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas?) {
         strokes.forEach { stroke ->
-            val col = colors[stroke.toString()]
-            val tempPaint = Paint()
-            tempPaint.isAntiAlias = true
-            tempPaint.strokeWidth = 20f
-            tempPaint.color = Color.WHITE
-            tempPaint.style = Paint.Style.STROKE
-            tempPaint.strokeJoin = Paint.Join.ROUND
-            canvas?.drawPath(stroke, tempPaint)
+            val col = colors[stroke]
+            //val tempPaint = Paint()
+            //tempPaint.isAntiAlias = true
+            //tempPaint.strokeWidth = 20f
+            //tempPaint.color =
+            //tempPaint.style = Paint.Style.STROKE
+            //tempPaint.strokeJoin = Paint.Join.ROUND
+            if (col != null) {
+                canvas?.drawPath(stroke, col)
+            }
         }
 
 
@@ -64,7 +66,7 @@ class CanvasView @JvmOverloads constructor(
             MotionEvent.ACTION_MOVE -> {
                 path.lineTo(x, y) // makes a line to the point each time this event is fired
                 strokes.add(path)
-                colors[path.toString()] = Color.valueOf(paint.color)
+                colors[path] = paint
                 path = Path()
                 path.moveTo(x, y)
             }
