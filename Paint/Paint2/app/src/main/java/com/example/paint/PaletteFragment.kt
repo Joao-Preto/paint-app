@@ -41,11 +41,11 @@ class PaletteFragment : Fragment(), View.OnClickListener {
         val root = inflater.inflate(R.layout.fragment_palette, container, false)
         val view = root.rootView
         if (view != null) {
-            view.findViewById<ImageButton>(R.id.copyButton).setOnClickListener(this)
+            view.findViewById<ImageButton>(R.id.beginSaveButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.brushButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.eraseButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.undoButton).setOnClickListener(this)
-            view.findViewById<ImageButton>(R.id.copyButton).setOnClickListener(this)
+            view.findViewById<ImageButton>(R.id.beginSaveButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.pasteButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.blackPaintButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.whitePaintButton).setOnClickListener(this)
@@ -61,6 +61,8 @@ class PaletteFragment : Fragment(), View.OnClickListener {
             view.findViewById<ImageButton>(R.id.magentaPaintButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.eraseButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.undoButton).setOnClickListener(this)
+            view.findViewById<ImageButton>(R.id.beginSaveButton).setOnClickListener(this)
+
         }
         return root
     }
@@ -121,6 +123,9 @@ class PaletteFragment : Fragment(), View.OnClickListener {
                     bundleOf())
                 R.id.undoButton            -> parentFragmentManager.setFragmentResult(EXTRA_UNDO,
                     bundleOf())
+                R.id.beginSaveButton       -> {
+
+                }
             }
         }
     }

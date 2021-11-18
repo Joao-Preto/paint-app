@@ -11,8 +11,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.Toast
-import android.widget.Toast.makeText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import kotlin.math.sqrt
@@ -22,6 +20,7 @@ const val Extra_PAINT = "com.example.paint.paint.color"
 const val Extra_SHAKE = "com.example.paint.shake"
 const val EXTRA_ERASE = "com.example.paint.erase"
 const val EXTRA_UNDO = "com.example.paint.undo"
+const val EXTRA_SAVE = "com.example.paint.save"
 class MainActivity : AppCompatActivity(), SensorEventListener {
 
     private lateinit var sensorManager: SensorManager
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     private var currAcc: Float = SensorManager.GRAVITY_EARTH
     private var oldAcc: Float = SensorManager.GRAVITY_EARTH
     private var acceleration: Float = 0.0f
-    private var backgroundColor = Color.WHITE
+    private var backgroundColor = Color.BLACK
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,13 +38,18 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         //val paintZoneFrag = supportFragmentManager.findFragmentById(R.id.canvasContainer)
         val paletteFrag   = supportFragmentManager.findFragmentById(R.id.paletteContainer)
         val settingsFragment = supportFragmentManager.findFragmentById(R.id.settingsContainer)
+        //val saveFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView)
         if (settingsFragment != null) {
             supportFragmentManager.beginTransaction().detach(settingsFragment).commit()
         }
-        view.setBackgroundColor(backgroundColor)
+        //view.setBackgroundColor(backgroundColor)
         if (paletteFrag != null) {
             supportFragmentManager.beginTransaction().setCustomAnimations(R.anim.slide_in,R.anim.slide_out).detach(paletteFrag).commit()
         }
+        //if (saveFragment != null) {
+        //    supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, SaveDrawingFragment())
+        //    supportFragmentManager.beginTransaction().detach(saveFragment).commit()
+        //}
         view.setOnTouchListener(object : OnSwipeTouchListener(this@MainActivity) {
             override fun onSwipeUp() {
                 if (paletteFrag != null) {
@@ -69,7 +73,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
                 view.setBackgroundColor(backgroundColor)
             }
         )
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -102,36 +105,37 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         sensorManager.unregisterListener(this)
     }
 
-    fun settings() {
+    private fun settings() {
         val settingsFragment = supportFragmentManager.findFragmentById(R.id.settingsContainer)
         if (settingsFragment != null) {
             supportFragmentManager.beginTransaction().attach(settingsFragment).addToBackStack(null).commit()
         }
     }
 
-    fun about () {
+    private fun about () {
         val intent = Intent(this, AboutActivity::class.java)
         startActivity(intent)
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
         when (event?.sensor?.type) {
-            Sensor.TYPE_ACCELEROMETER -> {
-                val x = event.values[0]
-                val y = event.values[1]
-                val z = event.values[2]
-                oldAcc = currAcc
-                currAcc = sqrt(x*x + y*y + z*z)
-                val delta = currAcc - oldAcc
-                acceleration = acceleration*0.9f + delta
-                if (acceleration > 12) {
-                    supportFragmentManager.setFragmentResult(
-                        Extra_SHAKE,
-                        bundleOf()
-                    )
-                }
+            Sensor.TYPE_ACCELEROMETER -> shakeEvent(event)
+        }
+    }
 
-            }
+    private fun shakeEvent(event: SensorEvent) {
+        val x = event.values[0]
+        val y = event.values[1]
+        val z = event.values[2]
+        oldAcc = currAcc
+        currAcc = sqrt(x*x + y*y + z*z)
+        val delta = currAcc - oldAcc
+        acceleration = acceleration*0.9f + delta
+        if (acceleration > 12) {
+            supportFragmentManager.setFragmentResult(
+                Extra_SHAKE,
+                bundleOf()
+            )
         }
     }
 

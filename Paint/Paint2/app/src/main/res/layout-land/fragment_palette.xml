@@ -69,7 +69,7 @@
         android:src="@drawable/content_paste"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/copyButton"
+        app:layout_constraintStart_toEndOf="@+id/beginSaveButton"
         app:layout_constraintTop_toBottomOf="@+id/eraseButton" />
 
     <ImageButton
@@ -121,7 +121,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/redPaintButton"
-        app:layout_constraintTop_toBottomOf="@+id/copyButton"
+        app:layout_constraintTop_toBottomOf="@+id/beginSaveButton"
         app:tint="#FF9000" />
 
     <ImageButton
@@ -147,7 +147,7 @@
         app:layout_constraintEnd_toStartOf="@+id/orangePaintButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/whitePaintButton"
-        app:layout_constraintTop_toBottomOf="@+id/copyButton"
+        app:layout_constraintTop_toBottomOf="@+id/beginSaveButton"
         app:tint="#FF0000" />
 
     <ImageButton
@@ -168,7 +168,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:src="@drawable/brush"
-        app:layout_constraintBottom_toTopOf="@+id/copyButton"
+        app:layout_constraintBottom_toTopOf="@+id/beginSaveButton"
         app:layout_constraintEnd_toStartOf="@+id/eraseButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/pencilButton"
@@ -192,13 +192,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:src="@drawable/eraser_variant"
-        app:layout_constraintEnd_toStartOf="@+id/copyButton"
+        app:layout_constraintEnd_toStartOf="@+id/beginSaveButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pencilButton" />
 
     <ImageButton
-        android:id="@+id/copyButton"
+        android:id="@+id/beginSaveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -230,7 +230,7 @@
         app:layout_constraintEnd_toStartOf="@+id/redPaintButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/blackPaintButton"
-        app:layout_constraintTop_toBottomOf="@+id/copyButton"
+        app:layout_constraintTop_toBottomOf="@+id/beginSaveButton"
         app:tint="#FFFFFF" />
 
 

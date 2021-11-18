@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.FragmentResultListener
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
@@ -47,30 +48,30 @@ class PaintZone : Fragment() {
             { _, result ->
                 val newPaintColor= result.getInt(Extra_PAINT)
                 canvas.changePaintColor(newPaintColor)
-                canvas.invalidate()
             }
         )
         this.parentFragmentManager.setFragmentResultListener(
             Extra_SHAKE,
             viewLifecycleOwner,
-            { _, _ ->
-                Toast.makeText(context, "shake", Toast.LENGTH_SHORT).show()
-                canvas.erase()
-                canvas.invalidate()
-            }
+            { _, _ -> canvas.erase() }
         )
         this.parentFragmentManager.setFragmentResultListener(
             EXTRA_ERASE,
             viewLifecycleOwner,
-            { _, _ ->
-                canvas.erase()
-            }
+            { _, _ -> canvas.erase() }
         )
         this.parentFragmentManager.setFragmentResultListener(
             EXTRA_UNDO,
             viewLifecycleOwner,
-            { _, _ ->
-                canvas.undo()
+            { _, _ -> canvas.undo() }
+        )
+        this.parentFragmentManager.setFragmentResultListener(
+            EXTRA_SAVE,
+            viewLifecycleOwner,
+            { _, result ->
+                Toast.makeText(context, "saved?", Toast.LENGTH_SHORT).show()
+                val name: String = result.getString(EXTRA_SAVE).toString()
+                canvas.saveDrawing(name)
             }
         )
         return canvas // inflater.inflate(R.layout.fragment_paint_zone, container, false)

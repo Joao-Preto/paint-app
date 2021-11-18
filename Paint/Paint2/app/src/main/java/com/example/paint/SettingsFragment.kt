@@ -1,16 +1,15 @@
 package com.example.paint
 
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.core.os.bundleOf
-import com.example.paint.R.drawable.ic_tick_done
+import androidx.fragment.app.Fragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +26,8 @@ class SettingsFragment : Fragment(), View.OnClickListener {
     private var param1: String? = null
     private var param2: String? = null
     private var pickedColor = Color.WHITE
+    private lateinit var fragView: View
+    private lateinit var editText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +44,7 @@ class SettingsFragment : Fragment(), View.OnClickListener {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_settings, container, false)
         val view = root.rootView
+        fragView = view
         if (view != null) {
             view.findViewById<ImageButton>(R.id.blackColorButton).setOnClickListener(this)
             view.findViewById<ImageButton>(R.id.whiteColorButton).setOnClickListener(this)
@@ -58,6 +60,7 @@ class SettingsFragment : Fragment(), View.OnClickListener {
             view.findViewById<ImageButton>(R.id.magentaColorButton).setOnClickListener(this)
             view.findViewById<Button>(R.id.pickColorButton).setOnClickListener(this)
             view.findViewById<Button>(R.id.button5).setOnClickListener(this)
+            view.findViewById<Button>(R.id.button3).setOnClickListener(this)
         }
         return root
     }
@@ -88,10 +91,7 @@ class SettingsFragment : Fragment(), View.OnClickListener {
                 R.id.blackColorButton      -> {
                     pickedColor = Color.BLACK
                 }
-                R.id.whiteColorButton      -> {
-                    pickedColor = Color.WHITE
-                    view.setBackgroundResource(R.drawable.ic_tick_done)
-                }
+                R.id.whiteColorButton      -> pickedColor = Color.WHITE
                 R.id.redColorButton        -> pickedColor = Color.RED
                 R.id.orangeColorButton     -> pickedColor = Color.rgb(255,144,0)
                 R.id.yellowColorButton     -> pickedColor = Color.YELLOW
@@ -104,12 +104,16 @@ class SettingsFragment : Fragment(), View.OnClickListener {
                 R.id.magentaColorButton    -> pickedColor = Color.rgb(255,0,255)
                 R.id.pickColorButton       -> parentFragmentManager.setFragmentResult(EXTRA_COLOR, bundleOf(EXTRA_COLOR to pickedColor))
                 R.id.button5               -> closeSettings()
+                R.id.button3               -> {
+                    val name = fragView.findViewById<EditText>(R.id.editTextTextPersonName2).text.toString()
+                    parentFragmentManager.setFragmentResult(EXTRA_SAVE, bundleOf(Extra_PAINT to name))
+                }
 
             }
         }
     }
 
-    fun closeSettings() {
+    private fun closeSettings() {
         parentFragmentManager.popBackStack()
 //        parentFragmentManager.beginTransaction().detach(this).commit()
     }

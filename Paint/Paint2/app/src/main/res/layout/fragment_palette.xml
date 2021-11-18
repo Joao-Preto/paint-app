@@ -63,17 +63,16 @@
 
     <ImageButton
         android:id="@+id/pasteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
         android:src="@drawable/ic_baseline_save_alt_24"
-        android:tint="#000000"
         app:layout_constraintBottom_toTopOf="@+id/lightGreenPaintButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/copyButton"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/beginSaveButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#000000" />
 
     <ImageButton
         android:id="@+id/darkPurplePaintButton"
@@ -137,7 +136,7 @@
         app:layout_constraintEnd_toStartOf="@+id/lightGreenPaintButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/orangePaintButton"
-        app:layout_constraintTop_toBottomOf="@+id/copyButton"
+        app:layout_constraintTop_toBottomOf="@+id/beginSaveButton"
         app:tint="#FFE600" />
 
     <ImageButton
@@ -155,9 +154,8 @@
 
     <ImageButton
         android:id="@+id/pencilButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/pencil"
         app:layout_constraintBottom_toTopOf="@+id/blackPaintButton"
@@ -168,8 +166,8 @@
 
     <ImageButton
         android:id="@+id/brushButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/brush"
         app:layout_constraintBottom_toTopOf="@+id/whitePaintButton"
@@ -180,8 +178,8 @@
 
     <ImageButton
         android:id="@+id/eraseButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/eraser_variant"
         app:layout_constraintBottom_toTopOf="@+id/redPaintButton"
@@ -192,20 +190,20 @@
 
     <ImageButton
         android:id="@+id/undoButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/arrow_u_left_top"
         app:layout_constraintBottom_toTopOf="@+id/orangePaintButton"
-        app:layout_constraintEnd_toStartOf="@+id/copyButton"
+        app:layout_constraintEnd_toStartOf="@+id/beginSaveButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/eraseButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/copyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/beginSaveButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/ic_outline_save_24"
         app:layout_constraintBottom_toTopOf="@+id/yellowPaintButton"
